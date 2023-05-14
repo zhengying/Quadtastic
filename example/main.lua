@@ -1,4 +1,5 @@
 local libquadtastic = require("libquadtastic")
+require('patch')
 
 local image, raw_quads, quads, liquid
 local bubble_pos
@@ -8,7 +9,7 @@ function love.load()
   love.graphics.setDefaultFilter("nearest", "nearest")
 
   raw_quads = require("res/quads") -- load raw quad definitions
-  image = love.graphics.newImage("res/sheet.png") -- load spritesheet
+  image = MakeNewImage("res/sheet.png") 
 
   -- Create LOVE Quads from raw quad definitions
   quads = libquadtastic.create_quads(raw_quads, image:getWidth(), image:getHeight())
@@ -39,7 +40,7 @@ function love.draw()
   love.graphics.setColor(liquid)
   love.graphics.rectangle("fill", tube.x, tube.y, tube.w, tube.h)
 
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
   love.graphics.draw(image, quads.stand, tube.x - 1, tube.y + tube.h - 3)
   love.graphics.draw(image, quads.lid, tube.x - 1, tube.y + 3 - raw_quads.lid.h)
 end

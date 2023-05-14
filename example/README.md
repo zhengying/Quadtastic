@@ -78,7 +78,7 @@ function love.draw()
   love.graphics.setColor(liquid)
   love.graphics.rectangle("fill", tube.x, tube.y, tube.w, tube.h)
 
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
   love.graphics.draw(image, quads.stand, tube.x - 1, tube.y + tube.h - 3)
   love.graphics.draw(image, quads.lid, tube.x - 1, tube.y + 3 - raw_quads.lid.h)
 end

@@ -5,7 +5,7 @@ local exporters = {}
 
 -- Creates the empty exporters directory and copies the Readme file to it.
 function exporters.init(dirname)
-  if not love.filesystem.exists(dirname) then
+  if not love.filesystem.getInfo(dirname) then
     local success = love.filesystem.createDirectory(dirname)
     assert(success)
   end
@@ -40,7 +40,7 @@ function exporters.list(dirnames)
   local found_exporters = {}
   local num_found = 0
   for _,dirname in pairs(dirnames) do
-    if love.filesystem.exists(dirname) then
+    if love.filesystem.getInfo(dirname) then
 
       local files = love.filesystem.getDirectoryItems(dirname)
       for _, file in ipairs(files) do

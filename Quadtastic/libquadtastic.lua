@@ -98,7 +98,8 @@ function libquadtastic.create_palette(table, image)
   if image:isCompressed() then
     error("Cannot currently handle compressed images")
   else
-    imagedata = image:getData()
+    imagedata = ImageGetData(image)
+    --imagedata = image:getData()
   end
 
   return create_palette(table, imagedata)

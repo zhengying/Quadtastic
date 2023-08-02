@@ -1,0 +1,13 @@
+{
+    "Lua.diagnostics.globals": [
+        "lfs"
+    ],
+    "Lua.workspace.library": [
+        "${3rd}/lfs/library",
+        "${3rd}/love2d/library"
+    ],
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.runtime.special": {
+        "love.filesystem.load": "loadfile"
+    }
+}

@@ -144,18 +144,18 @@ local function handle_input(state, _, y, w, h, content, text_x)
   if state.input_field.cursor_dt < .5 then
     local width = Text.min_width(state, string.sub(
       content, 1, state.input_field.cursor_pos))
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     love.graphics.line(text_x + width, y + 4, text_x + width, y + h - 4)
   end
 
   -- Highlight the selection
   if has_selection() then
-    love.graphics.setColor(255, 255, 255, 80)
+    love.graphics.setColor(1, 1, 1, 80)
     local from, to = get_selection_range()
     local x_from = Text.min_width(state, string.sub(content, 1, from))
     local x_to = Text.min_width(state, string.sub(content, 1, to))
     love.graphics.rectangle("fill", text_x + x_from, y + 4, x_to - x_from, h - 8)
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
   end
 
   local cursor_pos_at_mousex
@@ -255,7 +255,7 @@ Inputfield.draw = function(state, x, y, w, h, content, options)
   state.layout.adv_y = h
 
   -- Draw border
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
   renderutils.draw_border(state.style.stylesheet, state.style.quads.input_field_border, x, y, w, h, 3)
 
   -- Push state

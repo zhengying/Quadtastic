@@ -1,5 +1,6 @@
 local current_folder = ... and (...):match '(.-%.?)[^%.]+$' or ''
 local os_name = love.system.getOS()
+require('patch')
 package.cpath = package.cpath ..
                 string.format(";%s/shared/%s/?.%s",
                               love.filesystem.getSourceBaseDirectory(),
@@ -50,7 +51,7 @@ function love.load()
   -- Direct output to both stdout and a log file
   do
     -- Make sure that the save directory exists
-    if not love.filesystem.exists("log.txt") then
+    if not love.filesystem.getInfo("log.txt") then
       local file = love.filesystem.newFile("log.txt")
       file:open("w")
       file:close()
@@ -96,11 +97,18 @@ function love.load()
   smol_font:setFilter("nearest", "nearest")
   love.graphics.setFont(med_font)
 
-  local stylesheet = love.graphics.newImage("res/style.png")
-  local icon = love.graphics.newImage("res/icon-32x32.png")
-  local turboworkflow_deactivated = love.graphics.newImage("res/turboworkflow-deactivated.png")
-  local turboworkflow_activated = love.graphics.newImage("res/turboworkflow-activated.png")
-  local loading = love.graphics.newImage("res/loading.png")
+  local stylesheet = MakeNewImage("res/style.png")
+  local icon = MakeNewImage("res/icon-32x32.png")
+  local turboworkflow_deactivated = MakeNewImage("res/turboworkflow-deactivated.png")
+  local turboworkflow_activated = MakeNewImage("res/turboworkflow-activated.png")
+  local loading = MakeNewImage("res/loading.png")
+
+
+  -- local stylesheet = love.graphics.newImage("res/style.png")
+  -- local icon = love.graphics.newImage("res/icon-32x32.png")
+  -- local turboworkflow_deactivated = love.graphics.newImage("res/turboworkflow-deactivated.png")
+  -- local turboworkflow_activated = love.graphics.newImage("res/turboworkflow-activated.png")
+  -- local loading = love.graphics.newImage("res/loading.png")
 
   love.keyboard.setKeyRepeat(true)
   gui_state = imgui.init_state(transform)

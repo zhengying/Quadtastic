@@ -26,7 +26,7 @@ end
 function Panel.finish(gui_state, x, y, w, h)
   Frame.finish(gui_state, w, h)
   -- draw the little arrow
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
   love.graphics.draw(gui_state.style.stylesheet,
                      gui_state.style.quads.panel.arrow,
                      x, y - math.floor(gui_state.style.raw_quads.panel.arrow.h/2))

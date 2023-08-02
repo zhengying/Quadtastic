@@ -44,7 +44,9 @@ end
 -- Load an image from outside the game's source and save folder
 function common.load_image(filepath)
   local imagedata = common.load_imagedata(filepath)
-  return love.graphics.newImage(imagedata)
+  local image = love.graphics.newImage(imagedata)
+  ImageSetData(image, imagedata)
+  return image
 end
 
 -- Split a filepath into the path of the containing directory and a filename.

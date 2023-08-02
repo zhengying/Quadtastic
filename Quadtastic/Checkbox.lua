@@ -29,7 +29,7 @@ function Checkbox.draw(gui_state, x, y, w, h, checked)
   local margin_x = (w - raw_quads.unchecked.w) / 2
   local margin_y = (h - raw_quads.unchecked.h) / 2
 
-  love.graphics.setColor(255, 255, 255)
+  love.graphics.setColor(1, 1, 1)
   love.graphics.draw(gui_state.style.stylesheet,
                      quads[checked and "checked" or "unchecked"],
                      x + margin_x, y + margin_y)

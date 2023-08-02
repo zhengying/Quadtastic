@@ -43,7 +43,7 @@ function Menu.menu_start(gui_state, w, h, label)
     hit, hovered = Menu.menubar_item(gui_state, label, options)
   else
     hit, hovered = Menu.menu_item(gui_state, label, options)
-    love.graphics.setColor(255, 255, 255)
+    love.graphics.setColor(1, 1, 1)
     local arrow_w = gui_state.style.raw_quads.menu.arrow.w
     local arrow_h = gui_state.style.raw_quads.menu.arrow.h
     local arrow_x = x + w - arrow_w - 2
@@ -83,7 +83,7 @@ function Menu.menu_start(gui_state, w, h, label)
     gui_state.menu_bounds[gui_state.menu_depth + 1] = {x = abs_x, y = abs_y}
 
     -- Draw decoration at the top
-    love.graphics.setColor(255, 255, 255)
+    love.graphics.setColor(1, 1, 1)
     love.graphics.draw(gui_state.style.stylesheet, gui_state.style.quads.menu.tl, x, y)
     assert(t_w == 1)
     love.graphics.draw(gui_state.style.stylesheet, gui_state.style.quads.menu.t,
@@ -107,7 +107,7 @@ function Menu.menu_finish(gui_state, w, _)
   gui_state.menu_depth = gui_state.menu_depth - 1
 
   -- Draw decoration at the bottom
-  love.graphics.setColor(255, 255, 255)
+  love.graphics.setColor(1, 1, 1)
   love.graphics.draw(gui_state.style.stylesheet, gui_state.style.quads.menu.bl, x, y)
   local deco_height = gui_state.style.raw_quads.menu.b.h
   local bl_w = gui_state.style.raw_quads.menu.bl.w
@@ -188,7 +188,7 @@ function Menu.menu_item(gui_state, label, options)
   if options and options.checkbox then
     local state = options.checkbox.checked and "checked" or "unchecked"
     local raw_quad = gui_state.style.raw_quads.menu_checkbox[state]
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     love.graphics.draw(gui_state.style.stylesheet, gui_state.style.quads.menu_checkbox[state],
       0, (16 - raw_quad.h)/2)
     gui_state.layout.adv_x = raw_quad.w
@@ -229,7 +229,7 @@ function Menu.separator(gui_state)
   local x = gui_state.layout.next_x + 2
   local y = gui_state.layout.next_y + 1
   local w = gui_state.layout.max_w - 4
-  love.graphics.setColor(32, 63, 73)
+  love.graphics.setColor(32/255, 63/255, 73/255)
   love.graphics.rectangle("fill", x, y, w, 1)
   gui_state.layout.adv_x = 0
   gui_state.layout.adv_y = 3

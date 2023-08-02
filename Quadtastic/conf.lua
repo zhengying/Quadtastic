@@ -2,7 +2,7 @@ function love.conf(t)
   -- The name of the save directory (string)
   t.identity = "Quadtastic"
   -- The LÖVE version this game was made for (string)
-  t.version = "0.10.1"
+  t.version = "11.4"
   -- Attach a console (boolean, Windows only)
   t.console = false
   -- Enable the accelerometer on iOS and Android by exposing it as a Joystick (boolean)

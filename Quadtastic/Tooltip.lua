@@ -70,7 +70,7 @@ local show_tooltip = function(gui_state, x, y, w, h, label, options)
     love.graphics.translate(gui_state.window_transform:getTranslate())
     love.graphics.scale(gui_state.window_transform:getScale())
 
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     -- Draw tooltip border
     Renderutils.draw_border(gui_state.style.stylesheet,
                             gui_state.style.quads.tooltip.border,

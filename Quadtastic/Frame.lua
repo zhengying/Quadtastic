@@ -11,7 +11,7 @@ Frame.start = function(state, x, y, w, h, options)
   h = h or state.layout.max_h
 
   -- Draw border
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
   local quads = options and options.quads or state.style.quads.frame_border
   local bordersize = options and options.bordersize or 2
   renderutils.draw_border(state.style.stylesheet, quads, x, y, w, h, bordersize)

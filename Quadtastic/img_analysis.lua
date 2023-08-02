@@ -122,7 +122,8 @@ end
 function analysis.outter_bounding_box(image_or_imagedata, mx, my)
   local img
   if image_or_imagedata:type() == "Image" then
-    img = image_or_imagedata:getData()
+    --img = image_or_imagedata:getData()
+    img = ImageGetData(image_or_imagedata)
   else
     assert(image_or_imagedata:type() == "ImageData")
     img = image_or_imagedata
@@ -383,7 +384,8 @@ end
 function analysis.palette(image_or_imagedata, x, y, w, h)
   local img
   if image_or_imagedata:type() == "Image" then
-    img = image_or_imagedata:getData()
+    --img = image_or_imagedata:getData()
+    img = ImageGetData(image_or_imagedata)
   else
     assert(image_or_imagedata:type() == "ImageData")
     img = image_or_imagedata
@@ -472,7 +474,8 @@ end
 function analysis.enclosed_chunks(image_or_imagedata, x, y, w, h)
   local img
   if image_or_imagedata:type() == "Image" then
-    img = image_or_imagedata:getData()
+    --img = image_or_imagedata:getData()
+    img = ImageGetData(image_or_imagedata)
   else
     assert(image_or_imagedata:type() == "ImageData")
     img = image_or_imagedata

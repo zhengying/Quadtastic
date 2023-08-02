@@ -503,7 +503,7 @@ Quadtastic.draw = function(app, state, gui_state)
           -- Status bar
           imgui.push_style(gui_state, "font", gui_state.style.small_font)
 
-          love.graphics.setColor(255, 255, 255, 255)
+          love.graphics.setColor(1, 1, 1, 1)
           Label.draw(gui_state, nil, -3, nil, nil, string.format("%d%%", state.display.zoom * 100))
           Layout.next(gui_state, "-")
 

@@ -29,7 +29,7 @@ local function draw_elements(gui_state, state, elements, last_hovered, quad_boun
           background_quads = gui_state.style.quads.rowbackground.default
         end
 
-        love.graphics.setColor(255, 255, 255)
+        love.graphics.setColor(1, 1, 1)
         -- Draw row background
         love.graphics.draw( -- top
           gui_state.style.stylesheet, background_quads.top,

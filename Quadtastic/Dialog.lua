@@ -26,7 +26,7 @@ local Dialog = {}
 local function window_start(data, gui_state, w, h)
     love.graphics.setColor(gui_state.style.palette.shades.darkest(60))
     love.graphics.rectangle("fill", 0, 0, w, h)
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     local min_w = data.min_w or 0
     local min_h = data.min_h or 0
     local x = data.win_x or (w - min_w) / 2
@@ -111,7 +111,7 @@ local function show_filelist(gui_state, scrollpane_state, filelist, chosen_file)
               gui_state.layout.next_x, gui_state.layout.next_y,
               row_width, row_height)
           end
-          love.graphics.setColor(255, 255, 255)
+          love.graphics.setColor(1, 1, 1)
 
           local x = gui_state.layout.next_x + 2
           if file.type == "directory" then

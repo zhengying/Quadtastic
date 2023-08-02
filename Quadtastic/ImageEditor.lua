@@ -103,7 +103,7 @@ local function show_quad(gui_state, state, quad, quadname)
       end
     end
 
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
 
     love.graphics.push("all")
     love.graphics.setLineStyle("rough")
@@ -113,7 +113,7 @@ local function show_quad(gui_state, state, quad, quadname)
        state.selection:is_selected(quad)
     then
       -- Use a dashed line to outline the quad
-      love.graphics.setColor(255, 255, 255)
+      love.graphics.setColor(1, 1, 1)
       draw_dashed_line(quad, gui_state, state.display.zoom)
     else
       -- Use a simple line to outline the quad
@@ -180,7 +180,7 @@ end
 
 local function create_tool(app, gui_state, state, img_w, img_h)
     -- Draw a bright pixel where the mouse is
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     if gui_state.input then
       local mx, my = gui_state.transform:unproject(
         gui_state.input.mouse.x, gui_state.input.mouse.y)
@@ -244,7 +244,7 @@ end
 local function wand_tool(app, gui_state, state)
   if gui_state.input then
     -- Draw a bright pixel where the mouse is
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     local mx, my = gui_state.transform:unproject(
       gui_state.input.mouse.x, gui_state.input.mouse.y)
     mx, my = math.floor(mx), math.floor(my)
@@ -321,7 +321,7 @@ end
 local function palette_tool(app, gui_state, state)
   if gui_state.input then
     -- Draw a bright pixel where the mouse is
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     local mx, my = gui_state.transform:unproject(
       gui_state.input.mouse.x, gui_state.input.mouse.y)
     mx, my = math.floor(mx), math.floor(my)
@@ -488,7 +488,7 @@ local function select_tool(app, gui_state, state, img_w, img_h)
     -- If the mouse button was pressed outside the image editor, then there is
     -- no dragged rectangle.
     if rect then
-      love.graphics.setColor(255, 255, 255, 255)
+      love.graphics.setColor(1, 1, 1, 1)
       draw_dashed_line(rect, gui_state, state.display.zoom)
 
       -- Highlight all quads that are enclosed in the dragged rect
@@ -611,7 +611,7 @@ ImageEditor.draw = function(app, gui_state, state, x, y, w, h)
   do state.scrollpane_state = Scrollpane.start(gui_state, x, y, w, h,
     state.scrollpane_state
   )
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     love.graphics.scale(state.display.zoom, state.display.zoom)
 
     -- Draw background pattern
@@ -633,7 +633,7 @@ ImageEditor.draw = function(app, gui_state, state, x, y, w, h)
     end
 
     -- Draw dashed lines, then clear spritebatches
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     love.graphics.draw(gui_state.style.dashed_line.horizontal.spritebatch)
     gui_state.style.dashed_line.horizontal.spritebatch:clear()
     love.graphics.draw(gui_state.style.dashed_line.vertical.spritebatch)

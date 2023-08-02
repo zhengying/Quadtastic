@@ -53,7 +53,7 @@ Button.draw = function(state, x, y, w, h, label, iconquad, options)
   h = math.max(h, 6)
 
   -- Draw border
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
   local quads
   if options and options.disabled then
     quads = state.style.quads.button_border_disabled
@@ -70,7 +70,7 @@ Button.draw = function(state, x, y, w, h, label, iconquad, options)
   end
   local next_x = x
   if iconquad then
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     local margin_y = (h - iconheight) / 2
     love.graphics.draw(state.style.stylesheet, iconquad, x + 3, y + margin_y)
     next_x = next_x + iconwidth
@@ -90,14 +90,14 @@ Button.draw = function(state, x, y, w, h, label, iconquad, options)
   end
   pressed = pressed or options and options.pressed
   if pressed then
-    love.graphics.setColor(0, 0, 0, 70)
+    love.graphics.setColor(0, 0, 0, 70/255)
   elseif hovered then
-    love.graphics.setColor(255, 255, 255, 70)
+    love.graphics.setColor(1, 1, 1, 70/255)
   end
   if pressed or hovered then
     love.graphics.rectangle("fill", x + 2, y + 2, w - 4, h - 4)
   end
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
   return clicked, pressed, hovered
 end
 
@@ -119,7 +119,7 @@ Button.draw_flat = function(state, x, y, w, h, label, icons, options)
     h = math.max(label and labelheight or 0, icons and iconheight or 0)
   end
 
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
 
   -- Handle input before drawing so that we can decide which quad should be drawn
   local clicked, pressed, hovered
@@ -143,7 +143,7 @@ Button.draw_flat = function(state, x, y, w, h, label, icons, options)
   then
     love.graphics.rectangle("fill", x, y, w, h)
   end
-  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.setColor(1, 1, 1, 1)
 
   -- Print label
   if not options then options = {} end
@@ -162,7 +162,7 @@ Button.draw_flat = function(state, x, y, w, h, label, icons, options)
       quad = icons.default
     end
 
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     local margin_y = (h - iconheight) / 2
     love.graphics.draw(state.style.stylesheet, quad, x, y + margin_y)
     next_x = next_x + iconwidth + 2 -- small margin between icon and label

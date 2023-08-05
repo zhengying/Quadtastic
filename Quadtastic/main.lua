@@ -1,6 +1,6 @@
 local current_folder = ... and (...):match '(.-%.?)[^%.]+$' or ''
 local os_name = love.system.getOS()
-require('patch')
+--require('patch')
 package.cpath = package.cpath ..
                 string.format(";%s/shared/%s/?.%s",
                               love.filesystem.getSourceBaseDirectory(),
@@ -97,11 +97,15 @@ function love.load()
   smol_font:setFilter("nearest", "nearest")
   love.graphics.setFont(med_font)
 
-  local stylesheet = MakeNewImage("res/style.png")
-  local icon = MakeNewImage("res/icon-32x32.png")
-  local turboworkflow_deactivated = MakeNewImage("res/turboworkflow-deactivated.png")
-  local turboworkflow_activated = MakeNewImage("res/turboworkflow-activated.png")
-  local loading = MakeNewImage("res/loading.png")
+  local stylesheet_file = 'res/style.png'
+  local stylesheet = love.graphics.newImage(stylesheet_file) -- load spritesheet
+  local stylesheet_imagedata = love.image.newImageData(stylesheet_file) 
+
+
+  local icon = love.graphics.newImage("res/icon-32x32.png")
+  local turboworkflow_deactivated = love.graphics.newImage("res/turboworkflow-deactivated.png")
+  local turboworkflow_activated = love.graphics.newImage("res/turboworkflow-activated.png")
+  local loading = love.graphics.newImage("res/loading.png")
 
 
   -- local stylesheet = love.graphics.newImage("res/style.png")
@@ -153,7 +157,7 @@ function love.load()
     stylesheet:getWidth(), stylesheet:getHeight())
 
   gui_state.style.palette = libquadtastic.create_palette(gui_state.style.raw_quads.palette,
-    stylesheet)
+  stylesheet_imagedata)
 
   gui_state.style.font_color = gui_state.style.palette.shades.darkest
 

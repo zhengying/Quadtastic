@@ -42,6 +42,7 @@ function libquadtastic.get_metainfo(table)
   return table["_META"] or {}
 end
 
+
 -- Creates LOVE quads from the raw quads that are defined in the given table.
 -- width and height are the dimensions of the spritesheet for which the quads
 -- are defined.
@@ -66,8 +67,9 @@ end
 -- The defined colors are stored as a table, containing the R, G, B and A
 -- component of the color at index 1 through 4. Furthermore, each color is
 -- "callable", which makes it easier to change the alpha value on the fly.
-function libquadtastic.create_palette(table, image)
-
+function libquadtastic.create_palette(table, imagedata)
+  assert(imagedata:typeOf('ImageData'))
+  
   local function create_palette(tab, imagedata)
 
     if libquadtastic.is_quad(tab) then
@@ -93,14 +95,14 @@ function libquadtastic.create_palette(table, image)
     end
   end
 
-  local imagedata
+  -- local imagedata
 
-  if image:isCompressed() then
-    error("Cannot currently handle compressed images")
-  else
-    imagedata = ImageGetData(image)
-    --imagedata = image:getData()
-  end
+  -- if image:isCompressed() then
+  --   error("Cannot currently handle compressed images")
+  -- else
+  --   imagedata = ImageGetData(image)
+  --   --imagedata = image:getData()
+  -- end
 
   return create_palette(table, imagedata)
 end

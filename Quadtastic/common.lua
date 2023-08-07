@@ -47,7 +47,9 @@ function common.load_image(filepath)
   -- local image = love.graphics.newImage(imagedata)
   -- ImageSetData(image, imagedata)
   -- return image
-  return love.graphics.newImage(filepath)
+  --return love.graphics.newImage(filepath)
+  local imagedata = common.load_imagedata(filepath)
+  return love.graphics.newImage(imagedata)
 end
 
 -- Split a filepath into the path of the containing directory and a filename.

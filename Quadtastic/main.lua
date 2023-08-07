@@ -1,6 +1,13 @@
 local current_folder = ... and (...):match '(.-%.?)[^%.]+$' or ''
 local os_name = love.system.getOS()
 --require('patch')
+
+if os.getenv("LOCAL_LUA_DEBUGGER_VSCODE") == "1" then
+  require("lldebugger").start()
+end
+
+
+
 package.cpath = package.cpath ..
                 string.format(";%s/shared/%s/?.%s",
                               love.filesystem.getSourceBaseDirectory(),

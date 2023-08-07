@@ -6,3 +6,5 @@ Quadtastic/res/version.txt
 # Large files that we don't want in the index
 screenshots/*.mov
 .DS_Store
+*.love
+

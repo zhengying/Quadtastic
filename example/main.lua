@@ -1,5 +1,4 @@
 local libquadtastic = require("libquadtastic")
-require('patch')
 
 local image, raw_quads, quads, liquid
 local bubble_pos
@@ -9,13 +8,16 @@ function love.load()
   love.graphics.setDefaultFilter("nearest", "nearest")
 
   raw_quads = require("res/quads") -- load raw quad definitions
-  image = MakeNewImage("res/sheet.png") 
+  local image_path = 'res/sheet.png'
+
+  image = love.graphics.newImage(image_path) -- load spritesheet
+  local imagedata = love.image.newImageData(image_path) 
 
   -- Create LOVE Quads from raw quad definitions
   quads = libquadtastic.create_quads(raw_quads, image:getWidth(), image:getHeight())
   -- Extract color value from spritesheet. In this case we just extract a single
   -- color, but we could also pass in a table of quads.
-  liquid = libquadtastic.create_palette(raw_quads.liquid, image)
+  liquid = libquadtastic.create_palette(raw_quads.liquid, imagedata)
 
   bubble_pos = {}
   for i, raw_bubble in ipairs(raw_quads.bubbles) do

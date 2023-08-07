@@ -984,6 +984,9 @@ function QuadtasticLogic.transitions(interface) return {
 
   load_image = function(app, data, filepath, callback)
     filepath = os.path(filepath)
+    local myimage = common.load_image(filepath)
+    print(myimage)
+
     local success, more = pcall(common.load_image, filepath)
 
     -- success, more = pcall(love.graphics.newImage, data)

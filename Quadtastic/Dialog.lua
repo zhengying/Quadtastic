@@ -24,9 +24,11 @@ local lfs = require("lfs")
 local Dialog = {}
 
 local function window_start(data, gui_state, w, h)
-    love.graphics.setColor(gui_state.style.palette.shades.darkest(60))
+    --local _or,_og,_ob,current_folderoa = love.graphics.getColor()
+    love.graphics.setColor(gui_state.style.palette.shades.darkest(0.6))
     love.graphics.rectangle("fill", 0, 0, w, h)
     love.graphics.setColor(1, 1, 1, 1)
+    --love.graphics.setColor(_or,_og,_ob,oa )
     local min_w = data.min_w or 0
     local min_h = data.min_h or 0
     local x = data.win_x or (w - min_w) / 2

@@ -304,7 +304,7 @@ function love.draw()
     local x, y = gui_state.transform:unproject(mx + 10, my + 10)
     x, y = math.floor(x), math.floor(y)
     -- Draw dark background for better readability
-    love.graphics.setColor(gui_state.style.palette.shades.darkest(192))
+    love.graphics.setColor(gui_state.style.palette.shades.darkest(192/255))
     love.graphics.rectangle("fill", x-2, y + 2,
                             Text.min_width(gui_state, gui_state.mousestring) + 4, 12)
     imgui.push_style(gui_state, "font_color", gui_state.style.palette.shades.brightest)

@@ -129,7 +129,7 @@ Button.draw_flat = function(state, x, y, w, h, label, icons, options)
   pressed = pressed or options and options.pressed
   if pressed then
     local pressed_color = options and options.bg_color_pressed or
-                          state.style.palette.shades.darkest(90)
+                          state.style.palette.shades.darkest(90/255)
     love.graphics.setColor(pressed_color)
   elseif hovered then
     local hovered_color = options and options.bg_color_hovered or
